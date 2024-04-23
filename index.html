@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>
+<html> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -136,10 +146,19 @@
   <div class="beetle beetle2"></div>
   <div class="beetle beetle3"></div>
   <div class="beetle beetle4"></div>
-  <audio
-    src="love.mp3"
-    loop="loop" autoplay="autoplay" preload="auto" style="display: none;"></audio>
+<audio id="bgMusic" controls autoplay loop
+        src="love.mp3"></audio>
 </div>
-    <script src="yhc.js"></script>
+    <script src="yhc.js">
+var promise = document.querySelector('video').play();
+    if (promise !== undefined) {
+        promise.then(_ => {
+            // Autoplay started! 这种情况可以自动播放（非谷歌的其他浏览器：edge、360）
+        }).catch(error => {
+            //  Autoplay was prevented.谷歌和火狐就会阻止播放，可以显示一个PLAY按钮提示用户点击后进行播放
+        });
+    }
+</script>
+
 </body>
 </html>

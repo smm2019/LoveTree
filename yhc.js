@@ -1,3 +1,4 @@
+
 const NUMBER_OF_LEAVES = 40;
 function init() {
   let container = document.getElementById('leafContainer');
@@ -6,7 +7,6 @@ function init() {
     container.appendChild(createALeaf());
   }
 }
-
 //返回设置的随机整数
 function randomInteger(low, high) {
   return low + Math.floor(Math.random() * (high - low));
